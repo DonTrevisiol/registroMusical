@@ -64,9 +64,9 @@ def obtener_mes_responsable(anio):
         # 2) Menos faltas
 
         if (
-            resumen["faltas"]
+            resumen["faltas_injustificadas"]
             <
-            mejor_resumen["faltas"]
+            mejor_resumen["faltas_injustificadas"]
         ):
 
             mejor_mes = mes
@@ -74,9 +74,9 @@ def obtener_mes_responsable(anio):
             continue
 
         if (
-            resumen["faltas"]
+            resumen["faltas_injustificadas"]
             >
-            mejor_resumen["faltas"]
+            mejor_resumen["faltas_injustificadas"]
         ):
             continue
 

@@ -21,6 +21,9 @@ def obtener_mes_constante(anio):
             if r[4] > 0
         ]
 
+        if len(registros_validos) < 2:
+            continue
+
         if not registros_validos:
             continue
 

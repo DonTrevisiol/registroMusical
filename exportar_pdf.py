@@ -429,14 +429,14 @@ def exportar_tabla_mensual_pdf(
     tabla = Table(
         datos,
         colWidths=[
-            35,
-            80,
-            50,
-            70,
-            70,
-            60,
-            60,
-            250
+            25, #semana
+            80, #fecha
+            60, #canciones
+            85, #tiempo
+            85, #tiempo promedio
+            65, #dinero
+            75, #dinero promedio
+            250 #detalles
         ]
     )
 

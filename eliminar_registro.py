@@ -25,7 +25,6 @@ def eliminar_registro_seleccionado(tabla):
             "Las faltas virtuales y las cacaciones no pueden editarse ni eliminarse"
         )
 
-
         return
 
     tabla.winfo_toplevel().lift()

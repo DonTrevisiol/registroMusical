@@ -47,22 +47,48 @@ def actualizar_campos_falta():
 
 def guardar():
     try:
-        canciones = int(entry_canciones.get())
-        tiempo_str = entry_tiempo.get()
-        dinero = float(entry_dinero.get())
+
         detalles = entry_detalles.get()
+
         tipo_registro = (
             "justificada"
             if falta_justificada.get()
-        else "trabajado"
+            else "trabajado"
         )
-        fecha_input = entry_fecha.get()
 
-        # Parsear tiempo
-        tiempo_seg = parsear_tiempo(tiempo_str)
-        if tiempo_seg is None:
-            messagebox.showerror("Error", "Formato de tiempo inválido (ej: 1h23'45\":67)")
-            return
+        if tipo_registro == "justificada":
+
+            canciones = 0
+            tiempo_seg = 0
+            dinero = 0
+
+        else:
+
+            canciones = int(
+                entry_canciones.get()
+            )
+
+            tiempo_str = (
+                entry_tiempo.get()
+            )
+
+            dinero = float(
+                entry_dinero.get()
+            )
+
+            tiempo_seg = parsear_tiempo(
+                tiempo_str
+            )
+
+            if tiempo_seg is None:
+
+                messagebox.showerror(
+                    "Error",
+                    "Formato de tiempo inválido"
+                )
+
+                return
+        fecha_input = entry_fecha.get()
 
         # Manejo de fecha
         if fecha_input.strip() == "":

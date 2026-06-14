@@ -72,7 +72,9 @@ from utils_texto import (
 )
 
 from utils_resumen import (
-    resumir_registro
+    resumir_registro,
+    resumir_mtp,
+    resumir_mpp
 )
 
 
@@ -158,11 +160,11 @@ def mostrar_resumen_anual(anio):
     )
 
     texto_mtp = (
-        resumir_registro(mtp)
+        resumir_mtp(mtp)
     )
 
     texto_mpp = (
-        resumir_registro(mpp)
+        resumir_mpp(mpp)
     )
 
     if mes_constante:
@@ -370,10 +372,24 @@ def mostrar_resumen_anual(anio):
             f"Se generó correctamente: \n\n{archivo}"
         )
 
+    def exportar_pdf_seguro():
+
+        if not cerrado:
+
+            messagebox.showinfo(
+                "Año sin cerrar",
+                "Primero debes realizar el cierre anual."
+            )
+
+            return
+
+        exportar_pdf()
+
+
     tk.Button(
         ventana,
         text="Exportar PDF",
-        command=exportar_pdf
+        command=exportar_pdf_seguro
     ).pack(
         pady=5
     )
